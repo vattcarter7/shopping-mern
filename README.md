@@ -14,6 +14,8 @@
 - PayPal / credit card integration
 - Database seeder (products & users)
 
+![screenshot](https://github.com/vattcarter7/shopping-mern/blob/main/uploads/Screen%20Shot%202020-09-29%20at%205.50.52%20PM.png)
+
 ## Usage
 
 ### ES Modules in Node
