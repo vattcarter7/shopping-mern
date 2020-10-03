@@ -41,16 +41,21 @@ const OrderScreen = ({ match, history }) => {
       return (Math.round(num * 100) / 100).toFixed(2);
     };
 
-    order.itemsPrice = addDecimals(
-      order.orderItems.reduce((acc, item) => acc + item.price * item.qty, 0)
-    );
+    if (order) {
+      order.itemsPrice = addDecimals(
+        order.orderItems.reduce((acc, item) => acc + item.price * item.qty, 0)
+      );
+    }
   }
 
   useEffect(() => {
     if (!userInfo) {
       history.push('/login');
     }
+    dispatch(getOrderDetails(orderId));
+  }, [dispatch]);
 
+  useEffect(() => {
     const addPayPalScript = async () => {
       const { data: clientId } = await axios.get('/api/config/paypal');
       const script = document.createElement('script');
